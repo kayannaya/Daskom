@@ -1,18 +1,18 @@
 #include <stdio.h>
 
 typedef struct data{
-    char namaPasien[100];
-    float height;
-    float weight;
-    int 
+    int number
+    char nama[100];
+    float berat;
+    float tinggi;
+    int gd;
+    int stat[100];
 } data;
+
 
 int main (){
 
-
-
-
-
+    data pasien[i];
 
 
 
@@ -26,25 +26,30 @@ void menu(){
 
 }
 
-void input_Nama(){
+void input_Data(){
 
+    int n;
 
-}
+    printf("Masukkan jumlah data yang ingin di-input");
+    scanf("%d", &n);
 
-void input_Usia(){
+    for(i = 0 ; i < n ; i++) {
 
+        printf("Pasien %d:\n", i+1);
 
-}
-void input_Tinggi(){
+        printf("Masukkan Nama : ");
+        scanf("%s", ILLIT.member[i].name);
 
+        printf("Masukkan Umur : ");
+        scanf("%d", &ILLIT.member[i].age);
 
-}
-void input_Berat(){
+        printf("Masukkan Posisi : ");
+        scanf("%s", ILLIT.member[i].position);
 
+        printf("\n");
 
-}
-void input_GD(){
-
+        counter++;
+    }
 
 }
 
