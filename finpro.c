@@ -40,18 +40,23 @@ int main (){
 
         if (d == 1) {
 
-            //Data input
-            input_Data();
+            minta n
 
-            //Data calculation
-            BMI(&tinggi, &berat);
+            if (i = 0 ; i < n ; i++){
+                //Data input
+                input_Data(i,);
 
-            //Parameter calculation
-            BMI_Level();
-            GD_Level();
+                //Data calculation
+                BMI(&tinggi, &berat);
 
-            //Risk calculation
-            Status;
+                //Parameter calculation
+                BMI_Level();
+                GD_Level();
+
+                //Risk calculation
+                Status;
+            }
+            
         }
 
         else if (d == 2)
@@ -77,37 +82,41 @@ int main (){
     return 0;
 }
 
-void input_Data(){
+void input_Data(int *i, int *n){
 
-    int n, i;
-    int counter = 1;
-
-    data Data[i];
+    data Data[*i];
 
     printf("Masukkan jumlah pasien yang ingin di-input");
     scanf("%d", &n);
 
-    for(i = 0 ; i < n ; i++){
+    Data[0]
+    nama0, tinggi0, dll
 
-        Data[i].number = counter;
+    Data[1]
+    nama1. 
 
-        printf("Nama pasien ke-%d: ", counter);
-        scanf(" %[^\n]s", Data[i].nama);
+    Data[n]
 
-        printf("Berat badan pasien ke-%d: ", counter);
-        scanf("%f", &Data[i].berat);
+    
+        Data[i].number = *i + 1;
 
-        printf("Tinggi badan pasien ke-%d: ", counter);
-        scanf("%d", &Data[i].tinggi);
+        printf("Patient number %d", *i + 1);
 
-        printf("Tinggi badan pasien ke-%d: ", counter);
-        scanf("%d", &Data[i].gd);
+        printf("Patient's name : ");
+        scanf(" %[^\n]s", Data[*i].nama);
+
+        printf("Patient's weight : ");
+        scanf("%f", &Data[*i].berat);
+
+        printf("Patient's height : ");
+        scanf("%d", &Data[*i].tinggi);
+
+        printf("Patient's sugar level : ");
+        scanf("%d", &Data[*i].gd);
 
         printf("\n");
 
         counter++;
-    }
-
 }
 
 float BMI(int *height, float *weight){
@@ -160,24 +169,71 @@ void GD_Level(int *gd){ //Comparing GD data with literature
     }
 
     else if (150 < *gd < 200){
-        gdLevel = 3;
+        sugarLevel = 3;
         printf("You have high blood sugar level");
     }
     
     else{
-        gdLevel = 4;
+        sugarLevel = 4;
         printf("You have very high blood sugar level");
     }
 
 }
 
-void Status(int){ //Calculation diabetes or not + display data
+void Status(int *sugarLevel, int *bmiLevel, int *i, data *Data[*i]){ //Calculation diabetes or not + display data
 
+    if (*sugarLevel == 4 && *bmiLevel == 4){
+        
+        printf("You have very high risk of having diabetes. Please check to the doctor immediately.");
 
+        strcpy(Data[*i]->stat, "Very High Risk");
+    }
+    
+    else if (*sugarLevel == 4 || *bmiLevel == 4){
+        
+        printf("You have high risk of having diabetes.");
+
+        strcpy(Data[*i]->stat, "High Risk");
+    }
+
+    else if (*sugarLevel == 3 && *bmiLevel == 3){
+        
+        printf("You have high risk of having diabetes.");
+
+        strcpy(Data[*i]->stat, "High Risk");
+    }    
+
+    else if (*sugarLevel == 3 || *bmiLevel == 3){
+       
+        printf("You have medium risk of having diabetes.");
+
+        strcpy(Data[*i]->stat, "Medium Risk");
+    }
+    
+    else{
+
+        printf("You have low risk of having diabetes.");
+
+        strcpy(Data[*i]->stat, "Low Risk");
+    }
 
 }
 
-void accessPatient(){ //Access the data for each patient
+void accessPatient(data Data[i]){ //Access the data for each patient
 
+    int k;
+
+    printf("Which data do you want to access?");
+
+    printf("Enter the patient number");
+    scanf("%d", &k);
+
+    printf("[PATIENTS NUMBER %d]");
+
+    printf("Name : %s\n", Data[i].nama);
+    printf("Weight : %d\n", Data[i].berat);
+    printf("Height: %d\n", Data[i].tinggi);
+    printf("Sugar level : %d\n", Data[i].gd);
+    printf("Status : %d\s", Data[i].stat);
 
 }
