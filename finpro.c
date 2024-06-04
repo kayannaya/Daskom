@@ -1,19 +1,27 @@
 #include <stdio.h>
 
 typedef struct data{
-    int number
+    int number;
     char nama[100];
     float berat;
-    float tinggi;
+    int tinggi;
     int gd;
     char stat[100];
 } data;
-
 
 int main (){
 
     int i, d, 
     int m = 1;
+    int bmiLevel;
+    int sugarLevel;
+
+    int number
+    char nama[100];
+    float berat;
+    int tinggi;
+    int gd;
+    char stat[100];
 
     struct data Data[i];
 
@@ -34,6 +42,9 @@ int main (){
 
             //Data input
             input_Data();
+
+            //Data calculation
+            BMI(&tinggi, &berat);
 
             //Parameter calculation
             BMI_Level();
@@ -66,32 +77,31 @@ int main (){
     return 0;
 }
 
-void menu(){
-    int 
-
-
-    printf("Thank you for using our program. Stay healthy and have a nice day!");
-    break;
-
-}
-
 void input_Data(){
 
-    int n;
+    int n, i;
+    int counter = 1;
+
+    data Data[i];
 
     printf("Masukkan jumlah pasien yang ingin di-input");
     scanf("%d", &n);
 
     for(i = 0 ; i < n ; i++){
 
+        Data[i].number = counter;
+
         printf("Nama pasien ke-%d: ", counter);
         scanf(" %[^\n]s", Data[i].nama);
 
-        printf("id buku ke-%d: ", counter);
-        scanf("%d", &Data[i].nomorBuku);
+        printf("Berat badan pasien ke-%d: ", counter);
+        scanf("%f", &Data[i].berat);
 
-        printf("Rating buku ke-%d: ", counter);
-        scanf("%d", &Data[i].rating);
+        printf("Tinggi badan pasien ke-%d: ", counter);
+        scanf("%d", &Data[i].tinggi);
+
+        printf("Tinggi badan pasien ke-%d: ", counter);
+        scanf("%d", &Data[i].gd);
 
         printf("\n");
 
@@ -100,26 +110,68 @@ void input_Data(){
 
 }
 
-float BMI(int height, int weight){
+float BMI(int *height, float *weight){
 
     float bmi;
 
-    bmi = height/(weight^2);
+    bmi = *height/(*weight^2);
 
     return bmi;
 }
 
-void BMI_Level(){ //Comparing BMI data with literature
+void BMI_Level(int *bmi){ //Comparing BMI data with literature
 
+    int bmiLevel;
+
+    if (*bmi <= 20){
+        bmiLevel = 1;
+        printf("You are underweight");
+    }
+    
+    else if (20 < *bmi < 30){
+        bmiLevel = 2;
+        printf("You have normal weight");
+    }
+
+    else if (30 < *bmi < 40){
+        bmiLevel = 3;
+        printf("You are overweight");
+    }
+    
+    else{
+        bmiLevel = 4;
+        printf("You are obese");
+    }
 
 }
 
-void GD_Level(){ //Comparing GD data with literature
+void GD_Level(int *gd){ //Comparing GD data with literature
+    
+    int sugarLevel;
 
+    if (*gd <= 80){
+        sugarLevel = 1;
+        printf("You have low blood sugar level");
+    }
+    
+    else if (80 < *gd < 150){
+        sugarLevel = 2;
+        printf("You have normal blood sugar level");
+    }
+
+    else if (150 < *gd < 200){
+        gdLevel = 3;
+        printf("You have high blood sugar level");
+    }
+    
+    else{
+        gdLevel = 4;
+        printf("You have very high blood sugar level");
+    }
 
 }
 
-void Status(){ //Calculation diabetes or not + display data
+void Status(int){ //Calculation diabetes or not + display data
 
 
 
