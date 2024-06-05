@@ -92,15 +92,15 @@ float BMI(int tinggi, float berat) {
 }
 
 void BMI_Level(float bmi, int *bmiLevel) {
-    if (bmi <= 20) {
+    if (bmi <= 18.45) {
         *bmiLevel = 1;
         printf("You are underweight\n");
     } 
-    else if (bmi <= 30) {
+    else if (18.4 <= bmi <= 24.9) {
         *bmiLevel = 2;
         printf("You have normal weight\n");
     } 
-    else if (bmi <= 40) {
+    else if (25 <= bmi <= 29.9) {
         *bmiLevel = 3;
         printf("You are overweight\n");
     } 
@@ -111,15 +111,15 @@ void BMI_Level(float bmi, int *bmiLevel) {
 }
 
 void GD_Level(int gd, int *sugarLevel) {
-    if (gd <= 80) {
+    if (gd <= 70) {
         *sugarLevel = 1;
         printf("You have low blood sugar level\n");
     } 
-    else if (gd <= 150) {
+    else if (70 < gd <= 100) {
         *sugarLevel = 2;
         printf("You have normal blood sugar level\n");
     } 
-    else if (gd <= 200) {
+    else if (100 < gd <= 125) {
         *sugarLevel = 3;
         printf("You have high blood sugar level\n");
     } 
